@@ -1,3 +1,14 @@
 body {
   font-family: 'Raleway', sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-track {
+  background: #010101;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(60, 60, 60);
+}
