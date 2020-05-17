@@ -45,7 +45,7 @@ export class BurgerBuilder extends Component {
     }
 
     purchaseHandler = () => {
-        this.setState((prev, cur) => {
+        this.setState((prev) => {
             return {
                 purchasing: !prev.purchasing
             }
