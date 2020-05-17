@@ -1,12 +1,16 @@
 .navItem {
     margin: 10px 0;
+    border: 1px solid rgba(0,0,0,.125);
+    padding: 10px 5px;
+    border-radius: 5px;
     box-sizing: border-box;
     display: block;
     width: 100%;
+    transition-delay: .5s;
 }
 
 .navItem a {
-    color: #8f5c2c;
+    color: white;
     text-decoration: none;
     width: 100%;
     box-sizing: border-box;
@@ -14,21 +18,30 @@
     transition-duration: .5s;
 }
 
+.navItem:hover {
+    box-shadow: 0 16px 24px 2px rgba(2,2,2,.15), 0 6px 30px 5px rgba(0,0,0,.15), 0 8px 10px -5px rgba(0,0,0,.15);
+}
+
 .navItem a:hover, .navItem a:active, .navItem a.active {
-    color: #0ABDE3;
+    color: #FAD13B;
 }
 
 @media (min-width: 500px) {
     .navItem {
         margin: 0;
         display: flex;
+        padding: 0;
+        border: 0px solid rgba(0,0,0,.125);
         height: 100%;
         width: auto;
         align-items: center;
     }
+
+    .navItem:hover {
+        box-shadow: none;
+    }
     
     .navItem a {
-        color: white;
         height: 100%;
         padding: 16px 10px;
         border-bottom: 4px solid transparent;

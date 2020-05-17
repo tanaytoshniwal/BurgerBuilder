@@ -1,6 +1,6 @@
 .burger {
     width: 80%;
-    margin: auto;
+    margin: 10px auto;
     height: 250px;
     text-align: center;
     font-weight: bold;
@@ -10,12 +10,12 @@
 
 .emptyHead {
     font-size: 2.5rem;
-    color: #999999;
+    color: #616C6F;
 }
 .emptyText {
     font-size: 1rem;
     font-weight: normal;
-    color: #999999;
+    color: #616C6F;
 }
 
 @media (min-width: 500px) and (min-height: 400px){
