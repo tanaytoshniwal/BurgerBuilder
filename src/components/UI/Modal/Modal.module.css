@@ -1,0 +1,39 @@
+.modalBg {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 450;
+    background-color: rgba(0, 0, 0, .75);
+}
+.close {
+    background-color: #E84342;
+    border-radius: 50px;
+    border: .5px solid rgba(120, 120, 120, .75);
+    width: 20px;
+    cursor: pointer;
+    height: 20px;
+    float: right;
+    text-align: center;
+    color: white;
+}
+.modal {
+    position: fixed;
+    background-color: #FAD02E;
+    z-index: 500;
+    width: 70%;
+    border-radius: 10px;
+    padding: 16px;
+    left: 15%;
+    top: 30%;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+}
+
+@media (min-width: 600px) {
+    .modal {
+        width: 500px;
+        left: calc(50% - 250px);
+    }
+}

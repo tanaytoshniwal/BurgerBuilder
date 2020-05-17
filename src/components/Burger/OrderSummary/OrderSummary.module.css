@@ -1,0 +1,17 @@
+.list {
+    list-style: none;
+    color: #333;
+    padding: 0;
+}
+.row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+.col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

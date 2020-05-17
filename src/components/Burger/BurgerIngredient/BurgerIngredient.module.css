@@ -145,6 +145,13 @@
     box-shadow: inset 1px 3px #c9c9c9;
 }
 
+.alootikki {
+    width: 80%;
+    height: 8%;
+    background: linear-gradient(#7f5108, #703905);
+    margin: 2% auto;
+    border-radius: 15px;
+}
 
 .meat {
     width: 80%;
