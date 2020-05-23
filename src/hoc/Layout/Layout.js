@@ -3,6 +3,7 @@ import classes from './Layout.module.css'
 import Aux from '../Aux/Aux'
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar'
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer'
+import Footer from '../../components/UI/Footer/Footer'
 
 class Layout extends React.Component {
 
@@ -30,6 +31,7 @@ class Layout extends React.Component {
                 <main className={classes.content}>
                     {this.props.children}
                 </main>
+                <Footer />
             </Aux>
         )
     }
