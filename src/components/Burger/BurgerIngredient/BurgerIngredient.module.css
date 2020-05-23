@@ -202,7 +202,7 @@
     background-repeat: repeat-x;
     height: 10px;
     background-size: 20px 20px;
-    background-image: radial-gradient(circle at 10px -5px, transparent 12px, white 13px);
+    background-image: radial-gradient(circle at 10px -5px, transparent 12px, #F0DF87 13px);
 }
 
 .salad:after {
@@ -214,7 +214,7 @@
     background-repeat: repeat-x;
     height: 9px;
     background-size: 45px 20px;
-    background-image: radial-gradient(circle at 10px 15px, white 12px, transparent 13px);
+    background-image: radial-gradient(circle at 10px 15px, #F0DF87 12px, transparent 13px);
 }
 
 .tomatoes {

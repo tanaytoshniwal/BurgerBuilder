@@ -6,7 +6,7 @@ import Backdrop from '../Backdrop/Backdrop'
 class Modal extends React.Component {
 
     shouldComponentUpdate(nextProp, nextState) {
-        return nextProp.display !== this.props.display
+        return nextProp.display !== this.props.display || nextProp.children !== this.props.children
     }
 
     render () {
