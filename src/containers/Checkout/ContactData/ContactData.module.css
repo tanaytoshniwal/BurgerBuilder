@@ -1,0 +1,20 @@
+.contactData {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0 16px 24px 2px rgba(2,2,2,.15), 0 6px 30px 5px rgba(0,0,0,.15), 0 8px 10px -5px rgba(0,0,0,.15);
+    border: 1px solid #703C16;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.input {
+    display: block;
+}
+
+@media (min-width: 600px) {
+    .contactData {
+        width: 500px;
+    }
+}

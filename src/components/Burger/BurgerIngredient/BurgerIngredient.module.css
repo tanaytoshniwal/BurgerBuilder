@@ -5,6 +5,8 @@
     border-radius: 5px 5px 50px 50px;
     box-shadow: inset -15px 0 #c15711;
     margin: 2% auto;
+    animation: jiggle 0.9s linear infinite both;
+    animation-delay: .6s;
 }
 
 .breadTop {
@@ -17,6 +19,7 @@
     box-shadow: inset -15px 0 #c15711;
     margin: 2% auto;
     position: relative;
+    animation: jiggle 0.9s linear infinite both;
 }
 
 .seeds1 {
@@ -150,6 +153,8 @@
     height: 8%;
     background: linear-gradient(#7f5108, #703905);
     margin: 2% auto;
+    animation: jiggle 0.9s linear infinite both;
+    animation-delay: .145s;
     border-radius: 15px;
 }
 
@@ -158,6 +163,8 @@
     height: 8%;
     background: linear-gradient(#7f3608, #702e05);
     margin: 2% auto;
+    animation: jiggle 0.9s linear infinite both;
+    animation-delay: .2s;
     border-radius: 15px;
 }
 
@@ -166,6 +173,9 @@
     height: 2%;
     position: relative;
     margin: 2% auto;
+    z-index: 9;
+    animation: jiggle 0.9s linear infinite both;
+    animation-delay: .4s;
     background: linear-gradient(#f4d004, #d6bb22);
     border-radius: 20px;
 }
@@ -188,6 +198,8 @@
     height: 7%;
     margin: 2% auto;
     border-radius: 20px;
+    animation: jiggle 0.9s linear infinite both;
+    animation-delay: .7s;
     text-align: center;
     background: linear-gradient(to bottom, #228c1d, #91ce50);
     position: relative;
@@ -221,6 +233,8 @@
     width: 75%;
     height: 3%;
     margin: 2% auto;
+    animation: jiggle 0.9s linear infinite both;
+    animation-delay: .5s;
     border-radius: 20px;
     text-align: center;
     /* background: linear-gradient(to bottom, rgb(255, 41, 41), #ff6347); */
@@ -244,6 +258,8 @@
     height: 3%;
     background: linear-gradient(#bf3813, #c45e38);
     margin: 2% auto;
+    animation: jiggle 0.9s linear infinite both;
+    animation-delay: .3s;
     border-radius: 2px;
 }
 
@@ -258,7 +274,73 @@
         linear-gradient(90deg, #e4e4e4 10px, transparent 10px),
         linear-gradient(#e2e2e2 25%, #e5e5e5 25%, #e5e5e5 50%, transparent 50%, transparent 75%, #dbdbdb 75%, #dbdbdb);
     background-color: #ececec;
+    animation: jiggle 0.9s linear infinite both;
+    animation-delay: .1s;
     background-size: 20px 20px;
     margin: 2% auto;
     border-radius: 50px;
+}
+
+@-webkit-keyframes jiggle {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+
+    20% {
+        -webkit-transform: translate(2px, -2px);
+        transform: translate(2px, -2px);
+    }
+
+    40% {
+        -webkit-transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
+    }
+
+    60% {
+        -webkit-transform: translate(-2px, 2px);
+        transform: translate(-2px, 2px);
+    }
+
+    80% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+    }
+
+    100% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+}
+
+@keyframes jiggle {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+
+    20% {
+        -webkit-transform: translate(2px, -2px);
+        transform: translate(2px, -2px);
+    }
+
+    40% {
+        -webkit-transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
+    }
+
+    60% {
+        -webkit-transform: translate(-2px, 2px);
+        transform: translate(-2px, 2px);
+    }
+
+    80% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+    }
+
+    100% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
 }

@@ -1,0 +1,17 @@
+.order {
+    width: 80%;
+    border-radius: 5px;
+    box-shadow: 0 16px 24px 2px rgba(2,2,2,.15), 0 6px 30px 5px rgba(0,0,0,.15), 0 8px 10px -5px rgba(0,0,0,.15);
+    padding: 10px;
+    margin: 25px auto;
+    box-sizing: border-box;
+}
+
+.ig {
+    text-transform: capitalize;
+    display: inline-block;
+    margin: 8px;
+    border-radius: 50px;
+    border: 1px solid rgba(120, 120, 120, .75);
+    padding: 5px 10px;
+}
