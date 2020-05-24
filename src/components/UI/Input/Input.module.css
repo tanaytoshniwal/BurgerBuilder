@@ -1,0 +1,43 @@
+.input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.label {
+    font-weight: bold;
+    float: left;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.inputElement {
+    outline: none;
+    /* border: none; */
+    border: 1px solid rgba(120, 120, 120, .75);
+    border-radius: 25px;
+    background-color: transparent;
+    transition-duration: .5s;
+    font: inherit;
+    padding: 6px 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.inputElement:focus {
+    outline: none;
+    /* background-color: #ccc; */
+    border-color: rgba(12, 12, 12, .75);
+}
+
+.invalid {
+    border-color: rgba(221, 0, 0, .75);
+    background-color: rgba(221, 0, 0, .1);
+}
+
+.validation {
+    margin: 5px 0;
+    float: left;
+    color: rgba(221, 0, 0, .75);
+}

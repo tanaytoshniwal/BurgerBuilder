@@ -10,6 +10,11 @@
     font-weight: bold;
 }
 
+.button:disabled {
+    color: #999;
+    cursor: not-allowed;
+}
+
 .success {
     color: #43BE31;
 }
