@@ -7,7 +7,8 @@ const Order = (props) => {
         ingredients.push({ name: ingredient, quantity: props.ingredients[ingredient] })
     }
     const op = ingredients.map(ig => {
-        return <span className={classes.ig} key={ig.name}>{ig.name}: {ig.quantity}</span>
+        if(ig.quantity>0) return <span className={classes.ig} key={ig.name}>{ig.name}: {ig.quantity}</span>
+        else return null
     })
     return (
         <div className={classes.order}>

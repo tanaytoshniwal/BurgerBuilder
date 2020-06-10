@@ -1,7 +1,10 @@
 export { 
     addIngredient, 
     removeIngredient,
-    fetchIngredients,
-    fetchIngredientsFailed
+    fetchIngredients
 } from './burgerBuilder_action'
-export {} from './order_action'
+export {
+    purchaseBurger,
+    purchaseInit,
+    fetchOrders
+} from './order_action'

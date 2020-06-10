@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes'
 import axios from '../../axios-orders'
-import { preprocessData } from './utils'
+import { preprocessData } from '../utility'
 
 export const addIngredient = name => {
     return {

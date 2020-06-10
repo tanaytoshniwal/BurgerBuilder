@@ -1,3 +1,10 @@
+export const updateObject = (oldObject, newProperties) => {
+    return {
+        ...oldObject,
+        ...newProperties
+    }
+}
+
 export const preprocessData = data => {
     let resData = []
     for (let ele in data) {
