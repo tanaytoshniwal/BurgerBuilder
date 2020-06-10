@@ -4,43 +4,20 @@ import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
 import Modal from '../../components/UI/Modal/Modal'
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
-import axios from '../../axios-orders'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
-
+import axios from '../../axios-orders'
 import { connect } from 'react-redux'
 import * as burgerBuilderActions from '../../store/actions/index'
 import { BASE_PRICE, PRICE_TABLE } from '../../store/reducers/burgerBuilder_reducer'
 
 export class BurgerBuilder extends Component {
     state = {
-        purchasing: false,
-        loading: false,
-        error: false
-    }
-
-    preprocessData = data => {
-        let resData = []
-        for (let ele in data) {
-            resData.push([ele, data[ele]])
-        }
-        resData.sort((a, b) => {
-            return a[1].position - b[1].position
-        })
-        let result = {}
-        for (let i = 0; i < resData.length; i++) {
-            result[resData[i][0]] = resData[i][1].value
-        }
-        return result
+        purchasing: false
     }
 
     componentDidMount() {
-        // axios.get('/ingredients.json').then(response => {
-        //     let processedData = this.preprocessData(response.data)
-        //     this.setState({ ingredients: processedData })
-        // }).catch(error => {
-        //     this.setState({ error: true })
-        // })
+        this.props.onInitIngredients()
     }
 
     updatePurchaseState = () => {
@@ -80,7 +57,10 @@ export class BurgerBuilder extends Component {
 
         let orderSummary = null
 
-        let burger = this.state.error ? <p>Unable to Load Ingredients!</p> : <Spinner />
+        let burger = this.props.error ? <div style={{width: '100%', textAlign: 'center'}}>
+                <span style={{display: 'block'}}>Unable to Load Ingredients!</span>
+                <span style={{display: 'block'}}>Please check your Internet Connection</span>
+            </div> : <Spinner />
         if (this.props.ingredients) {
             burger = (
                 <Aux>
@@ -102,9 +82,6 @@ export class BurgerBuilder extends Component {
                 total={this.props.price} />
         }
 
-        if (this.state.loading)
-            orderSummary = <Spinner />
-
         return (
             <Aux>
                 <Modal
@@ -121,14 +98,16 @@ export class BurgerBuilder extends Component {
 const mapStateToProps = state => {
     return {
         ingredients: state.ingredients,
-        price: state.price
+        price: state.price,
+        error: state.error
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         addIngredient: (ingredientName) => dispatch(burgerBuilderActions.addIngredient(ingredientName)),
-        removeIngredient: (ingredientName) => dispatch(burgerBuilderActions.removeIngredient(ingredientName))
+        removeIngredient: (ingredientName) => dispatch(burgerBuilderActions.removeIngredient(ingredientName)),
+        onInitIngredients: () => dispatch(burgerBuilderActions.fetchIngredients())
     }
 }
 

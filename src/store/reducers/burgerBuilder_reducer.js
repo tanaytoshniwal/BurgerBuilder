@@ -13,16 +13,9 @@ export const PRICE_TABLE = {
 }
 
 const initialState = {
-    ingredients: {
-        alootikki: 0,
-        bacon: 0,
-        cheese: 0,
-        meat: 0,
-        paneer: 0,
-        salad: 0,
-        tomatoes: 0
-    },
-    price: BASE_PRICE
+    ingredients: null,
+    price: BASE_PRICE,
+    error: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -44,6 +37,17 @@ const reducer = (state = initialState, action) => {
                     [action.payload.ingredientName]: state.ingredients[action.payload.ingredientName] - 1
                 },
                 price: state.price - PRICE_TABLE[action.payload.ingredientName]
+            }
+        case actionTypes.SET_INGREDIENTS:
+            return {
+                ...state,
+                ingredients: action.payload,
+                error: false
+            }
+        case actionTypes.FETCH_INGREDIENTS_FAILED:
+            return {
+                ...state,
+                error: true
             }
         default:
             return state
