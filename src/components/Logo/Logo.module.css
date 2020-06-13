@@ -4,9 +4,12 @@
     height: 45px;
     width: 45px;
     box-sizing: border-box;
-    border-radius: 50px;
+    border-radius: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.logo img {
+.img {
     height: 100%;
 }

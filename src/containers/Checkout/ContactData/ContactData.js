@@ -48,7 +48,8 @@ class ContactData extends Component {
                 validation: {
                     required: true,
                     minLength: 5,
-                    maxLength: 6
+                    maxLength: 6,
+                    isNumeric: true
                 },
                 valid: false,
                 touched: false
@@ -74,7 +75,8 @@ class ContactData extends Component {
                 },
                 value: '',
                 validation: {
-                    required: true
+                    required: true,
+                    isEmail: true
                 },
                 valid: false,
                 touched: false
@@ -106,6 +108,14 @@ class ContactData extends Component {
         if(rules.maxLength) {
             isValid = value.trim().length <= rules.maxLength && isValid
         }
+        if (rules.isEmail) {
+            const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            isValid = pattern.test(value) && isValid
+        }
+        if (rules.isNumeric) {
+            const pattern = /^\d+$/
+            isValid = pattern.test(value) && isValid
+        }
         return isValid
     }
 
@@ -118,10 +128,11 @@ class ContactData extends Component {
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
-            orderData: formData
+            orderData: formData,
+            userId: this.props.userId
         }
 
-        this.props.onOrderBurger(order)
+        this.props.onOrderBurger(order, this.props.token)
     }
 
     inputChangeHandler = (event, id) => {
@@ -179,13 +190,15 @@ const mapStateToProps = state => {
     return {
         ingredients: state.burgerBuilder.ingredients,
         price: state.burgerBuilder.price,
-        loading: state.order.loading
+        loading: state.order.loading,
+        token: state.auth.token,
+        userId: state.auth.userId
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onOrderBurger: orderData => dispatch(actions.purchaseBurger(orderData))
+        onOrderBurger: (orderData, token) => dispatch(actions.purchaseBurger(orderData, token))
     }
 }
 

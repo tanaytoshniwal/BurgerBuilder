@@ -16,7 +16,8 @@ export const PRICE_TABLE = {
 const initialState = {
     ingredients: null,
     price: BASE_PRICE,
-    error: false
+    error: false,
+    building: false
 }
 
 const addIngredient = (state, action) => {
@@ -24,7 +25,8 @@ const addIngredient = (state, action) => {
     const add_updatedIngredients = updateObject(state.ingredients, add_updatedIngredient)
     const add_updatedState = {
         ingredients: add_updatedIngredients,
-        price: state.price + PRICE_TABLE[action.payload.ingredientName]
+        price: state.price + PRICE_TABLE[action.payload.ingredientName],
+        building: true
     }
     return updateObject(state, add_updatedState)
 }
@@ -34,7 +36,8 @@ const removeIngredient = (state, action) => {
     const rem_updatedIngredients = updateObject(state.ingredients, rem_updatedIngredient)
     const rem_updatedState = {
         ingredients: rem_updatedIngredients,
-        price: state.price + PRICE_TABLE[action.payload.ingredientName]
+        price: state.price - PRICE_TABLE[action.payload.ingredientName],
+        building: true
     }
     return updateObject(state, rem_updatedState)
 }
@@ -43,7 +46,8 @@ const setIngredients = (state, action) => {
     return updateObject(state, {
         ingredients: action.payload,
         price: BASE_PRICE,
-        error: false
+        error: false,
+        building: false
     })
 }
 

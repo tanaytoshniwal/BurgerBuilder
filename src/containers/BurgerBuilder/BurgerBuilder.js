@@ -32,11 +32,16 @@ export class BurgerBuilder extends Component {
     }
 
     purchaseHandler = () => {
-        this.setState((prev) => {
-            return {
-                purchasing: !prev.purchasing
-            }
-        })
+        if (this.props.isAuth)
+            this.setState((prev) => {
+                return {
+                    purchasing: !prev.purchasing
+                }
+            })
+        else {
+            this.props.setAuthReditectPath('/checkout')
+            this.props.history.push('/login')
+        }
     }
 
     purchaseContinueHandler = () => {
@@ -58,10 +63,10 @@ export class BurgerBuilder extends Component {
 
         let orderSummary = null
 
-        let burger = this.props.error ? <div style={{width: '100%', textAlign: 'center'}}>
-                <span style={{display: 'block'}}>Unable to Load Ingredients!</span>
-                <span style={{display: 'block'}}>Please check your Internet Connection</span>
-            </div> : <Spinner />
+        let burger = this.props.error ? <div style={{ width: '100%', textAlign: 'center' }}>
+            <span style={{ display: 'block' }}>Unable to Load Ingredients!</span>
+            <span style={{ display: 'block' }}>Please check your Internet Connection</span>
+        </div> : <Spinner />
         if (this.props.ingredients) {
             burger = (
                 <Aux>
@@ -69,6 +74,7 @@ export class BurgerBuilder extends Component {
                     <BuildControls
                         add={this.props.addIngredient}
                         sub={this.props.removeIngredient}
+                        isAuth={this.props.isAuth}
                         disabled={disabledInfo}
                         purchaseHandler={this.purchaseHandler}
                         price={this.props.price}
@@ -100,16 +106,18 @@ const mapStateToProps = state => {
     return {
         ingredients: state.burgerBuilder.ingredients,
         price: state.burgerBuilder.price,
-        error: state.burgerBuilder.error
+        error: state.burgerBuilder.error,
+        isAuth: state.auth.token !== null
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        addIngredient: (ingredientName) => dispatch(actions.addIngredient(ingredientName)),
-        removeIngredient: (ingredientName) => dispatch(actions.removeIngredient(ingredientName)),
+        addIngredient: ingredientName => dispatch(actions.addIngredient(ingredientName)),
+        removeIngredient: ingredientName => dispatch(actions.removeIngredient(ingredientName)),
         onInitIngredients: () => dispatch(actions.fetchIngredients()),
-        purchaseInit: () => dispatch(actions.purchaseInit())
+        purchaseInit: () => dispatch(actions.purchaseInit()),
+        setAuthReditectPath: path => dispatch(actions.setAuthRedirectPath(path))
     }
 }
 
